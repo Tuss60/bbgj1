@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
-var ghost_id = 0
+var ghost_id = -1
 var speed = 200
 var last_direction_vec = Vector2(0, 1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if ghost_id != -1:
+		# if this is a ghost
+		add_to_group("ghosts")
 	
 func get_animation_direction(direction_vec: Vector2):
 	var norm_direction_vec = direction_vec.normalized()
@@ -35,9 +37,13 @@ func animate_player(direction_vec: Vector2):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	# temporary hack to test death
+	if Input.is_action_just_pressed("ui_accept"):
+		die()
+	
 	var im = get_parent().get_node("InputManager")
-	if ghost_id == 0:
-		im.manual_update()
+	if ghost_id == -1:
+		im.manual_update()	
 	
 	var velocity = Vector2()  # The player's movement vector.
 	if im.get_right(ghost_id):
@@ -52,3 +58,10 @@ func _physics_process(delta):
 	animate_player(velocity)
 		
 	move_and_collide(velocity * delta)
+
+func die():
+	if ghost_id == -1:
+		var im = get_parent().get_node("InputManager")
+		im.save_record_and_reset()
+		position = Vector2(0,0)
+		get_parent().on_player_death()

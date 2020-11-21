@@ -161,6 +161,7 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 17 )
 __meta__ = {
 "_edit_group_": true
