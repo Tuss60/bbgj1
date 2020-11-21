@@ -62,7 +62,5 @@ func _physics_process(delta):
 
 func die():
 	if ghost_id == -1:
-		var im = get_parent().get_node("InputManager")
-		im.save_record_and_reset()
 		position = Vector2(0,0)
 		get_parent().on_player_death()
