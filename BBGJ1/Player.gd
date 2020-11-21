@@ -31,7 +31,6 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite.stop()
 		
-	#position += velocity * delta
 	move_and_collide(velocity * delta)
 
 	if velocity.x != 0:
