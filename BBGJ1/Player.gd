@@ -9,6 +9,7 @@ func _ready():
 	if ghost_id != -1:
 		# if this is a ghost
 		add_to_group("ghosts")
+		$PlayerSprite.modulate.a = 0.5
 	
 func get_animation_direction(direction_vec: Vector2):
 	var norm_direction_vec = direction_vec.normalized()
