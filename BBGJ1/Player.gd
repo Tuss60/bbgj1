@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
 var speed = 200
 
@@ -24,7 +24,8 @@ func _process(delta):
 	else:
 		$AnimatedSprite.stop()
 		
-	position += velocity * delta
+	#position += velocity * delta
+	move_and_collide(velocity * delta)
 
 	if velocity.x != 0:
 		$AnimatedSprite.animation = "walk"
