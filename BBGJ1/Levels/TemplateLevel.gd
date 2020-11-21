@@ -12,6 +12,9 @@ func _ready():
 	pass # Replace with function body.
 
 func on_player_death():
+	# save player's input record
+	$InputManager.save_record_and_reset()
+	
 	# reset all ghosts
 	for ghost in get_tree().get_nodes_in_group("ghosts"):
 		ghost.position = Vector2(0,0)
