@@ -26,6 +26,9 @@ func on_player_death():
 	ghost_counter += 1
 	add_child(new_ghost)
 	
+	# give the player the primary camera
+	get_node("Player/Camera2D").current = true
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
