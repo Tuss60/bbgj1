@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Tilesets/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://GreenMonster.tscn" type="PackedScene" id=10]
 [ext_resource path="res://BossMonster.tscn" type="PackedScene" id=11]
 [ext_resource path="res://FlyingMonster.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Camera.gd" type="Script" id=13]
+[ext_resource path="res://DoorControls/PressurePlate.tscn" type="PackedScene" id=14]
 
 [node name="TemplateLevel" type="Node2D"]
 script = ExtResource( 4 )
@@ -40,7 +42,7 @@ script = ExtResource( 3 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 1.8, 1.8 )
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 collision_layer = 2147483650
@@ -79,11 +81,11 @@ texture = ExtResource( 8 )
 position = Vector2( 74.3707, 1416.62 )
 control_nodes = [ NodePath("PressurePlate"), NodePath("PressurePlate2") ]
 
-[node name="PressurePlate" parent="DynamicDoor" instance=ExtResource( 10 )]
-position = Vector2( -149.371, -141.62 )
+[node name="PressurePlate" parent="DynamicDoor" instance=ExtResource( 14 )]
+position = Vector2( 150.41, -145.92 )
 
-[node name="PressurePlate2" parent="DynamicDoor" instance=ExtResource( 10 )]
-position = Vector2( 150.629, -141.62 )
+[node name="PressurePlate2" parent="DynamicDoor" instance=ExtResource( 14 )]
+position = Vector2( -150.41, -145.92 )
 
 [node name="FlyingMonster" parent="." instance=ExtResource( 12 )]
 position = Vector2( -626.449, 397.261 )
