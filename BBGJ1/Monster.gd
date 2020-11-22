@@ -2,12 +2,14 @@ extends KinematicBody2D
 
 export var speed = 200
 export var health = 3
+export var fireball_cooldown = 200
 var last_direction_vec : Vector2 = Vector2(0, 1)
 var current_direction_vec : Vector2 = Vector2(0, 0)
 var special_animation = false
 export(NodePath) var ai
 var initial_position
 var initial_health
+var fireball_time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +22,7 @@ func _ready():
 func reset():
 	position = initial_position
 	health = initial_health
+	fireball_time = 0
 	animate_monster(Vector2.ZERO)
 	if ai:
 		ai.reset()
@@ -98,9 +101,23 @@ func _physics_process(delta):
 	if collision != null and collision.collider.name != "Player":
 		pass # do nothing for now
 		
+	fireball_time += 1
+	if fireball_time == fireball_cooldown:
+		fireball_time = 0
+		var fireball = preload("res://Fireball.tscn")
+		var fb = fireball.instance()
+		fb.position = position
+		fb.direction = monster_direction.normalized()
+		fb.creator = self
+		get_parent().add_child(fb)
+		
 func touchedBullet():
 	health = max(health - 1, 0)
 	if health == 0:
 		monster_death()
 	else:
 		monster_hit()
+
+func _on_Area2D_body_entered(body):
+	if "Player" in body.name:
+		body.touchedBullet()

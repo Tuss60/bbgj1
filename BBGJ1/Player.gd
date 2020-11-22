@@ -84,6 +84,7 @@ func _fire_gun(direction):
 	get_parent().add_child(ball)
 	ball.global_position = global_position + (100 * direction)
 	ball.set_ball_direction(direction)
+	print("playing sound")
 	$SoundAttack.play()
 
 func touchedBullet():
