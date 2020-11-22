@@ -36,7 +36,8 @@ collision_layer = 2147483650
 [node name="PlayerSprite" parent="Player" index="2"]
 z_index = 2
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Doors" type="TileMap" parent="."]
+z_index = 5
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 1, 1 )
 format = 1
