@@ -5,6 +5,7 @@ class InputState:
 	var down = false
 	var left = false
 	var right = false
+	var shoot = false
 	var frame = 0
 
 		
@@ -18,7 +19,8 @@ class InputRecord:
 		return s1.up == s2.up and \
 			   s1.down == s2.down and \
 			   s1.left == s2.left and \
-			   s1.right == s2.right
+			   s1.right == s2.right and \
+			   s1.shoot == s2.shoot
 	
 	func add_state_if_changed(state):
 		if states.empty():
@@ -42,6 +44,8 @@ class InputRecord:
 		return states[active_index].left
 	func get_active_right():
 		return states[active_index].right
+	func get_active_shoot():
+		return states[active_index].shoot
 
 var current_input_record
 var ghost_records = []
@@ -59,6 +63,7 @@ func manual_update():
 	new_input_state.down = Input.is_action_pressed("ui_down")
 	new_input_state.left = Input.is_action_pressed("ui_left")
 	new_input_state.right = Input.is_action_pressed("ui_right")
+	new_input_state.shoot = Input.is_action_just_pressed("shift")
 	new_input_state.frame = frame_counter
 	current_input_record.add_state_if_changed(new_input_state)
 	
@@ -98,4 +103,10 @@ func get_right(ghost_id):
 		return current_input_record.states[-1].right
 	else:
 		return ghost_records[ghost_id].get_active_right()
+		
+func get_shoot(ghost_id):
+	if ghost_id == -1:
+		return current_input_record.states[-1].shoot
+	else:
+		return ghost_records[ghost_id].get_active_shoot()
 	

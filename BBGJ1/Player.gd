@@ -55,12 +55,32 @@ func _physics_process(delta):
 		velocity.y += 1
 	if im.get_up(ghost_id):
 		velocity.y -= 1
+
 	velocity = velocity.normalized() * speed
 	animate_player(velocity)
 		
 	move_and_collide(velocity * delta)
+	
+	if im.get_shoot(ghost_id):
+		_fire_gun(last_direction_vec.normalized())
 
 func die():
 	if ghost_id == -1:
 		position = Vector2(0,0)
 		get_parent().on_player_death()
+
+
+const BALL = preload("res://Bullet.tscn")
+
+func _fire_gun(direction):
+	direction = direction.normalized()
+	var ball = BALL.instance()
+	get_parent().add_child(ball)
+	ball.global_position = global_position + (100 * direction)
+	ball.set_ball_direction(direction)
+
+func touchedBullet():
+	print("Player should be killed now!")
+#	if ghost_id == -1:
+		#die()
+	#call_deferred("free")
