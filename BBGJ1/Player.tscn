@@ -150,7 +150,7 @@ animations = [ {
 "frames": [ ExtResource( 141 ), ExtResource( 131 ), ExtResource( 132 ), ExtResource( 133 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 140 ), ExtResource( 134 ), ExtResource( 129 ), ExtResource( 130 ), ExtResource( 135 ), ExtResource( 142 ), ExtResource( 128 ), ExtResource( 127 ), ExtResource( 136 ), ExtResource( 139 ), ExtResource( 125 ), ExtResource( 126 ) ],
 "loop": false,
 "name": "death",
-"speed": 5.0
+"speed": 30.0
 }, {
 "frames": [ ExtResource( 42 ), ExtResource( 38 ), ExtResource( 18 ), ExtResource( 39 ), ExtResource( 32 ), ExtResource( 19 ), ExtResource( 34 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 37 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,

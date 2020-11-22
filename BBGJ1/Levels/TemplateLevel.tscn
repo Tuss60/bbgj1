@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Tilesets/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Assets/BGs/Stars Small_1.png" type="Texture" id=8]
 [ext_resource path="res://DynamicDoor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GreenMonster.tscn" type="PackedScene" id=10]
+[ext_resource path="res://BossMonster.tscn" type="PackedScene" id=11]
+[ext_resource path="res://FlyingMonster.tscn" type="PackedScene" id=12]
 
 [node name="TemplateLevel" type="Node2D"]
 script = ExtResource( 4 )
@@ -71,7 +73,13 @@ texture = ExtResource( 8 )
 [node name="DynamicDoor" parent="." instance=ExtResource( 9 )]
 position = Vector2( 74.3707, 1416.62 )
 
+[node name="FlyingMonster" parent="." instance=ExtResource( 12 )]
+position = Vector2( -626.449, 397.261 )
+
 [node name="GreenMonster" parent="." instance=ExtResource( 10 )]
 position = Vector2( -669.776, -362.746 )
+
+[node name="BossMonster" parent="." instance=ExtResource( 11 )]
+position = Vector2( -693.296, 87.8557 )
 
 [editable path="Player"]
