@@ -73,6 +73,7 @@ func die():
 	is_dead = true
 	if ghost_id == -1:
 		get_parent().on_player_death()
+	$PlayerSprite.play("death")
 
 
 const BALL = preload("res://Bullet.tscn")
