@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tilesets/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/BGs/Nebula Blue.png" type="Texture" id=7]
 [ext_resource path="res://Assets/BGs/Stars Small_1.png" type="Texture" id=8]
 [ext_resource path="res://DynamicDoor.tscn" type="PackedScene" id=9]
+[ext_resource path="res://DoorControls/PressurePlate.tscn" type="PackedScene" id=10]
 
 [node name="TemplateLevel" type="Node2D"]
 script = ExtResource( 4 )
@@ -69,5 +70,12 @@ texture = ExtResource( 8 )
 
 [node name="DynamicDoor" parent="." instance=ExtResource( 9 )]
 position = Vector2( 74.3707, 1416.62 )
+control_nodes = [ NodePath("PressurePlate"), NodePath("PressurePlate2") ]
+
+[node name="PressurePlate" parent="DynamicDoor" instance=ExtResource( 10 )]
+position = Vector2( -149.371, -141.62 )
+
+[node name="PressurePlate2" parent="DynamicDoor" instance=ExtResource( 10 )]
+position = Vector2( 150.629, -141.62 )
 
 [editable path="Player"]
