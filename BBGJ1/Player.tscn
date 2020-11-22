@@ -134,11 +134,6 @@ animations = [ {
 "name": "idle_left",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 57 ), ExtResource( 74 ), ExtResource( 54 ), ExtResource( 67 ), ExtResource( 119 ), ExtResource( 79 ), ExtResource( 52 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 44 ), ExtResource( 70 ), ExtResource( 58 ), ExtResource( 69 ), ExtResource( 80 ), ExtResource( 60 ), ExtResource( 75 ), ExtResource( 59 ), ExtResource( 77 ), ExtResource( 68 ), ExtResource( 78 ), ExtResource( 120 ), ExtResource( 76 ), ExtResource( 45 ), ExtResource( 82 ), ExtResource( 81 ) ],
-"loop": true,
-"name": "idle_up",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 62 ), ExtResource( 123 ), ExtResource( 87 ), ExtResource( 84 ), ExtResource( 61 ), ExtResource( 63 ), ExtResource( 99 ), ExtResource( 85 ) ],
 "loop": true,
 "name": "walk_down",
@@ -147,6 +142,11 @@ animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walk_left",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 57 ), ExtResource( 74 ), ExtResource( 54 ), ExtResource( 67 ), ExtResource( 119 ), ExtResource( 79 ), ExtResource( 52 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 44 ), ExtResource( 70 ), ExtResource( 58 ), ExtResource( 69 ), ExtResource( 80 ), ExtResource( 60 ), ExtResource( 75 ), ExtResource( 59 ), ExtResource( 77 ), ExtResource( 68 ), ExtResource( 78 ), ExtResource( 120 ), ExtResource( 76 ), ExtResource( 45 ), ExtResource( 82 ), ExtResource( 81 ) ],
+"loop": true,
+"name": "idle_up",
 "speed": 30.0
 }, {
 "frames": [ ExtResource( 121 ), ExtResource( 71 ), ExtResource( 83 ), ExtResource( 115 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 48 ), ExtResource( 101 ), ExtResource( 100 ), ExtResource( 49 ), ExtResource( 43 ), ExtResource( 88 ), ExtResource( 56 ), ExtResource( 122 ), ExtResource( 51 ) ],
@@ -166,10 +166,6 @@ script = ExtResource( 17 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 1.8, 1.8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 32.469 )
