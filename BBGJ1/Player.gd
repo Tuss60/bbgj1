@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var ghost_id = -1
-var speed = 200
+var speed = 500
 var last_direction_vec = Vector2(0, 1)
 var is_dead = false
 
@@ -62,7 +62,8 @@ func _physics_process(delta):
 
 	velocity = velocity.normalized() * speed
 	animate_player(velocity)
-		
+
+	#warning-ignore:RETURN_VALUE_DISCARDED
 	move_and_collide(velocity * delta)
 	
 	if im.get_shoot(ghost_id):

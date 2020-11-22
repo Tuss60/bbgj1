@@ -37,10 +37,15 @@ tile_data = PoolIntArray( -196615, 0, 0, -196614, 5, 0, -196613, 5, 0, -196612, 
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource( 3 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 1.8, 1.8 )
+script = ExtResource( 11 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 collision_layer = 2147483650
 
-[node name="PlayerSprite" parent="Player" index="2"]
+[node name="PlayerSprite" parent="Player" index="1"]
 z_index = 2
 
 [node name="Doors" type="TileMap" parent="."]
@@ -72,6 +77,13 @@ texture = ExtResource( 8 )
 
 [node name="DynamicDoor" parent="." instance=ExtResource( 9 )]
 position = Vector2( 74.3707, 1416.62 )
+control_nodes = [ NodePath("PressurePlate"), NodePath("PressurePlate2") ]
+
+[node name="PressurePlate" parent="DynamicDoor" instance=ExtResource( 10 )]
+position = Vector2( -149.371, -141.62 )
+
+[node name="PressurePlate2" parent="DynamicDoor" instance=ExtResource( 10 )]
+position = Vector2( 150.629, -141.62 )
 
 [node name="FlyingMonster" parent="." instance=ExtResource( 12 )]
 position = Vector2( -626.449, 397.261 )
