@@ -16,5 +16,8 @@ func _process(delta):
 
 
 func _on_Area2D_body_entered(body):
-	if not body == creator:
+	if "Player" in body.name:
+		body.touchedBullet()
+		call_deferred("free")
+	elif not body == creator:
 		call_deferred("free")
