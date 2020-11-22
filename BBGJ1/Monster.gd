@@ -34,34 +34,38 @@ func get_animation_direction(direction_vec: Vector2):
 	elif norm_direction_vec.x >= 0.707:
 		return "right"
 	return "down"
-
-func animate_monster(direction_vec: Vector2):
-	var state = "idle"
-	if direction_vec != Vector2.ZERO:
-		last_direction_vec = direction_vec
-		state = "walk"
+	
+func get_right_corrected_direction(last_direction_vec):
 	var last_direction = get_animation_direction(last_direction_vec)
 	if last_direction == "right":
 		$MonsterSprite.flip_h = true
 		last_direction = "left"
 	else: 
 		$MonsterSprite.flip_h = false
+	return last_direction
+
+func animate_monster(direction_vec: Vector2):
+	var state = "idle"
+	if direction_vec != Vector2.ZERO:
+		last_direction_vec = direction_vec
+		state = "walk"
+	var last_direction = get_right_corrected_direction(last_direction_vec)
 	$MonsterSprite.play(state + "_" + last_direction)
 	
 func monster_attack():
 	special_animation = true
-	var last_direction = get_animation_direction(last_direction_vec)
+	var last_direction = get_right_corrected_direction(last_direction_vec)
 	$MonsterSprite.play("attack_" + last_direction)
 
 func monster_hit():
 	special_animation = true
-	var last_direction = get_animation_direction(last_direction_vec)
+	var last_direction = get_right_corrected_direction(last_direction_vec)
 	$MonsterSprite.play("hit_" + last_direction)
 	
 func monster_death():
 	special_animation = true
 	current_direction_vec = Vector2(0, 0)
-	var last_direction = get_animation_direction(last_direction_vec)
+	var last_direction = get_right_corrected_direction(last_direction_vec)
 	$MonsterSprite.play("death_" + last_direction)
 
 func get_monster_move_vec():
