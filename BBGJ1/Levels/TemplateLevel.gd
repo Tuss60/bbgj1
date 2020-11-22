@@ -34,6 +34,10 @@ func on_player_death():
 	# give the player the primary camera
 	get_node("Player/Camera2D").current = true
 	
+	# close door
+	#TODO make a group to close all doors?
+	$DynamicDoor.close()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
