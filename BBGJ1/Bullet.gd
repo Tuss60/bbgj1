@@ -6,6 +6,9 @@ const MAX_BOUNCES = 10
 var velocity = Vector2()
 var currentBounces = 0
 
+func _ready():
+	add_to_group("bullets")
+
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
@@ -22,4 +25,5 @@ func set_ball_direction(direction):
 
 func _on_Area2D_body_entered(body):
 	if "Player" in body.name:
-		get_parent().get_node("Player").touchedBullet()
+		body.touchedBullet()
+		call_deferred("free")

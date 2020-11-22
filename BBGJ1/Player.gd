@@ -3,12 +3,13 @@ extends KinematicBody2D
 var ghost_id = -1
 var speed = 200
 var last_direction_vec = Vector2(0, 1)
+var is_dead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("players")
 	if ghost_id != -1:
 		# if this is a ghost
-		add_to_group("ghosts")
 		$PlayerSprite.modulate.a = 0.5
 	
 func get_animation_direction(direction_vec: Vector2):
@@ -39,8 +40,11 @@ func animate_player(direction_vec: Vector2):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	# temporary hack to test death
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("shift"):
 		die()
+	
+	if is_dead:
+		return
 	
 	var im = get_parent().get_node("InputManager")
 	if ghost_id == -1:
@@ -65,8 +69,8 @@ func _physics_process(delta):
 		_fire_gun(last_direction_vec.normalized())
 
 func die():
+	is_dead = true
 	if ghost_id == -1:
-		position = Vector2(0,0)
 		get_parent().on_player_death()
 
 
@@ -80,7 +84,4 @@ func _fire_gun(direction):
 	ball.set_ball_direction(direction)
 
 func touchedBullet():
-	print("Player should be killed now!")
-#	if ghost_id == -1:
-		#die()
-	#call_deferred("free")
+	die()
