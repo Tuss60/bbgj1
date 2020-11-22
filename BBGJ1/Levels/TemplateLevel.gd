@@ -19,6 +19,10 @@ func on_player_death():
 	for player in get_tree().get_nodes_in_group("players"):
 		player.position = Vector2(0,0)
 		player.is_dead = false
+	
+	# reset monsters
+	for monster in get_tree().get_nodes_in_group("monsters"):
+		monster.reset()
 		
 	# create new ghost
 	var player_sc = preload("../Player.tscn")

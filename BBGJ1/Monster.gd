@@ -6,11 +6,18 @@ var last_direction_vec : Vector2 = Vector2(0, 1)
 var current_direction_vec : Vector2 = Vector2(0, 0)
 var special_animation = false
 export(NodePath) var ai
+var initial_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ai = get_node(ai)
 	$MonsterSprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
+	add_to_group("monsters")
+	initial_position = position
+	set_new_monster_direction()
+	
+func reset():
+	position = initial_position
 	
 func _on_AnimatedSprite_animation_finished():
 	var animation_name = $MonsterSprite.animation.split('_')[0]
