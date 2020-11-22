@@ -37,7 +37,10 @@ func on_player_death():
 	
 	# close door
 	#TODO make a group to close all doors?
-	$DynamicDoor.close()
+	$DD_Room1.close()
+	$DD_Room2.close()
+	$DD_Room3_1.close()
+	$DD_Room3_Boss.close()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
