@@ -27,3 +27,6 @@ func _on_Area2D_body_entered(body):
 	if "Player" in body.name:
 		body.touchedBullet()
 		call_deferred("free")
+	elif "Monster" in body.name:
+		body.touchedBullet()
+		call_deferred("free")
