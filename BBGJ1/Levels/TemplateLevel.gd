@@ -15,9 +15,10 @@ func on_player_death():
 	# save player's input record
 	$InputManager.save_record_and_reset()
 	
-	# reset all ghosts
-	for ghost in get_tree().get_nodes_in_group("ghosts"):
+	# reset all players (includes ghosts)
+	for ghost in get_tree().get_nodes_in_group("players"):
 		ghost.position = Vector2(0,0)
+		ghost.is_dead = false
 		
 	# create new ghost
 	var player_sc = preload("../Player.tscn")
