@@ -19,8 +19,10 @@ func _ready():
 	
 func reset():
 	position = initial_position
-	health = health
+	health = initial_health
 	animate_monster(Vector2.ZERO)
+	if ai:
+		ai.reset()
 	
 func _on_AnimatedSprite_animation_finished():
 	var animation_name = $MonsterSprite.animation.split('_')[0]
