@@ -16,12 +16,14 @@ func _ready():
 func open():
 	is_open = true
 	$Sprite.hide()
-	$CollisionShape2D.disabled = true
+	if not $CollisionShape2D.disabled:
+		$CollisionShape2D.set_deferred("disabled", true)
 	
 func close():
 	is_open = false
 	$Sprite.show()
-	$CollisionShape2D.disabled = false
+	if $CollisionShape2D.disabled:
+		$CollisionShape2D.set_deferred("disabled", false)
 
 func _physics_process(_delta):
 	should_be_open = true
