@@ -218,4 +218,10 @@ stream = ExtResource( 16 )
 volume_db = -4.0
 autoplay = true
 
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 1, 1 )
+format = 1
+tile_data = PoolIntArray( 39124671, 11, 0, 39190207, 11, 0, 39255742, 11, 0, 39255743, 11, 0, 48758463, 9, 0, 78250855, 11, 0, 87753576, 9, 0, 97845075, 11, 0, 166199271, 11, 0, 175701991, 9, 0 )
+
 [editable path="Player"]
