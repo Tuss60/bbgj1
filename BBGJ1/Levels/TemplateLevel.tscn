@@ -19,12 +19,12 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1128.33, 384.023, 0, 0, 0, 0, 1112.31, 527.501, 0, 0, 0, 0, 1123.84, 680.354, 0, 0, 0, 0, 1651.02, 683.419, 0, 0, 0, 0, 1725.48, 680.354, 0, 0, 0, 0, 1726.58, 531.431, 0, 0, 0, 0, 1723.24, 386.268, 0, 0, 0, 0, 1304.88, 387.305, 0, 0, 0, 0, 1205.66, 381.093, 0, 0, 0, 0, 1128.33, 384.023 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1128.33, 384.023, 0, 0, 0, 0, 1123.84, 680.354, 0, 0, 0, 0, 1725.48, 680.354, 0, 0, 0, 0, 1723.24, 386.268, 0, 0, 0, 0, 1128.33, 384.023 )
 }
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -624.957, 397.493, 0, 0, 0, 0, -624.957, 1219.14, 0, 0, 0, 0, 800.571, 1216.89, 0, 0, 0, 0, 815.203, 810.544, 0, 0, 0, 0, 798.326, 397.493, 0, 0, 0, 0, -624.957, 397.493 )
+"points": PoolVector2Array( 0, 0, 0, 0, -624.957, 397.493, 0, 0, 0, 0, -624.957, 1219.14, 0, 0, 0, 0, 800.571, 1216.89, 0, 0, 0, 0, 798.326, 397.493, 0, 0, 0, 0, -624.957, 397.493 )
 }
 
 [sub_resource type="Curve2D" id=3]
@@ -140,7 +140,7 @@ path = NodePath("../../PathFlying")
 [node name="R2_GM_1" parent="." instance=ExtResource( 10 )]
 position = Vector2( -1122.09, 1285.65 )
 z_index = 2
-ai = NodePath("../R2_GM/followPath")
+ai = NodePath("followPath")
 
 [node name="followPath" parent="R2_GM_1" instance=ExtResource( 15 )]
 path = NodePath("../../R2_GM_1_Path")
@@ -152,7 +152,7 @@ curve = SubResource( 1 )
 [node name="R3_GM_1" parent="." instance=ExtResource( 10 )]
 position = Vector2( 563.068, 1874.28 )
 z_index = 2
-ai = NodePath("../R2_GM/followPath")
+ai = NodePath("followPath")
 
 [node name="followPath" parent="R3_GM_1" instance=ExtResource( 15 )]
 path = NodePath("../../R3_GM_1_Path")
@@ -165,7 +165,7 @@ curve = SubResource( 1 )
 [node name="R4_GM_1" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1019.66, 385.434 )
 z_index = 2
-ai = NodePath("../R2_GM/followPath")
+ai = NodePath("followPath")
 
 [node name="followPath" parent="R4_GM_1" instance=ExtResource( 15 )]
 path = NodePath("../../R4_GM_1_Path")
@@ -178,7 +178,7 @@ curve = SubResource( 1 )
 [node name="R4_GM_2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1676.59, 513.32 )
 z_index = 2
-ai = NodePath("../R2_GM/followPath")
+ai = NodePath("followPath")
 
 [node name="followPath" parent="R4_GM_2" instance=ExtResource( 15 )]
 path = NodePath("../../R4_GM_1_Path")
