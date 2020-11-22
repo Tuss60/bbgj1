@@ -39,7 +39,7 @@ func animate_player(direction_vec: Vector2):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	# temporary hack to test death
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("shift"):
 		die()
 	
 	var im = get_parent().get_node("InputManager")

@@ -16,6 +16,7 @@ class InputRecord:
 		pass
 	
 	func are_states_equal(s1, s2):
+		# note that this intentionally omits the frame
 		return s1.up == s2.up and \
 			   s1.down == s2.down and \
 			   s1.left == s2.left and \
@@ -63,7 +64,7 @@ func manual_update():
 	new_input_state.down = Input.is_action_pressed("ui_down")
 	new_input_state.left = Input.is_action_pressed("ui_left")
 	new_input_state.right = Input.is_action_pressed("ui_right")
-	new_input_state.shoot = Input.is_action_just_pressed("shift")
+	new_input_state.shoot = Input.is_action_just_pressed("ui_select")
 	new_input_state.frame = frame_counter
 	current_input_record.add_state_if_changed(new_input_state)
 	
