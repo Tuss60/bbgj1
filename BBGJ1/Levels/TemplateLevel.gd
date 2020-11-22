@@ -9,6 +9,7 @@ var ghost_counter = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Camera2D.target = $Player
 	pass # Replace with function body.
 
 func on_player_death():
@@ -29,10 +30,11 @@ func on_player_death():
 	var new_ghost = player_sc.instance()
 	new_ghost.ghost_id = ghost_counter
 	ghost_counter += 1
-	add_child(new_ghost)
+	call_deferred("add_child", new_ghost)
 	
 	# give the player the primary camera
-	get_node("Player/Camera2D").current = true
+	# Not needed since handled by DisplayWithMinimap
+	# get_node("Player/Camera2D").current = true
 	
 	# close door
 	#TODO make a group to close all doors?
