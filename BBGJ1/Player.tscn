@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=2]
+[gd_scene load_steps=146 format=2]
 
 [ext_resource path="res://Assets/Player/Walk/Left/CharacterLeft-Run_0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Player/Walk/Left/CharacterLeft-Run_15.png" type="Texture" id=2]
@@ -142,6 +142,7 @@
 [ext_resource path="res://Assets/Player/Death/CharacterFront-Death_6.png" type="Texture" id=140]
 [ext_resource path="res://Assets/Player/Death/CharacterFront-Death_0.png" type="Texture" id=141]
 [ext_resource path="res://Assets/Player/Death/CharacterFront-Death_11.png" type="Texture" id=142]
+[ext_resource path="res://Assets/Sounds/SFX/laser_01.wav" type="AudioStream" id=143]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -152,9 +153,24 @@ animations = [ {
 "name": "death",
 "speed": 30.0
 }, {
+"frames": [ ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 62 ), ExtResource( 123 ), ExtResource( 87 ), ExtResource( 84 ), ExtResource( 61 ), ExtResource( 63 ), ExtResource( 99 ), ExtResource( 85 ) ],
+"loop": true,
+"name": "walk_down",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 57 ), ExtResource( 74 ), ExtResource( 54 ), ExtResource( 67 ), ExtResource( 119 ), ExtResource( 79 ), ExtResource( 52 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 44 ), ExtResource( 70 ), ExtResource( 58 ), ExtResource( 69 ), ExtResource( 80 ), ExtResource( 60 ), ExtResource( 75 ), ExtResource( 59 ), ExtResource( 77 ), ExtResource( 68 ), ExtResource( 78 ), ExtResource( 120 ), ExtResource( 76 ), ExtResource( 45 ), ExtResource( 82 ), ExtResource( 81 ) ],
+"loop": true,
+"name": "idle_up",
+"speed": 30.0
+}, {
 "frames": [ ExtResource( 55 ), ExtResource( 66 ), ExtResource( 65 ), ExtResource( 95 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 50 ), ExtResource( 46 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 47 ), ExtResource( 124 ), ExtResource( 86 ), ExtResource( 64 ), ExtResource( 98 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 53 ), ExtResource( 105 ), ExtResource( 94 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ) ],
 "loop": true,
 "name": "idle_down",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 121 ), ExtResource( 71 ), ExtResource( 83 ), ExtResource( 115 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 48 ), ExtResource( 101 ), ExtResource( 100 ), ExtResource( 49 ), ExtResource( 43 ), ExtResource( 88 ), ExtResource( 56 ), ExtResource( 122 ), ExtResource( 51 ) ],
+"loop": true,
+"name": "walk_up",
 "speed": 30.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 2 ) ],
@@ -165,21 +181,6 @@ animations = [ {
 "frames": [ ExtResource( 42 ), ExtResource( 38 ), ExtResource( 18 ), ExtResource( 39 ), ExtResource( 32 ), ExtResource( 19 ), ExtResource( 34 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 37 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "idle_left",
-"speed": 30.0
-}, {
-"frames": [ ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 62 ), ExtResource( 123 ), ExtResource( 87 ), ExtResource( 84 ), ExtResource( 61 ), ExtResource( 63 ), ExtResource( 99 ), ExtResource( 85 ) ],
-"loop": true,
-"name": "walk_down",
-"speed": 30.0
-}, {
-"frames": [ ExtResource( 121 ), ExtResource( 71 ), ExtResource( 83 ), ExtResource( 115 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 48 ), ExtResource( 101 ), ExtResource( 100 ), ExtResource( 49 ), ExtResource( 43 ), ExtResource( 88 ), ExtResource( 56 ), ExtResource( 122 ), ExtResource( 51 ) ],
-"loop": true,
-"name": "walk_up",
-"speed": 30.0
-}, {
-"frames": [ ExtResource( 57 ), ExtResource( 74 ), ExtResource( 54 ), ExtResource( 67 ), ExtResource( 119 ), ExtResource( 79 ), ExtResource( 52 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 44 ), ExtResource( 70 ), ExtResource( 58 ), ExtResource( 69 ), ExtResource( 80 ), ExtResource( 60 ), ExtResource( 75 ), ExtResource( 59 ), ExtResource( 77 ), ExtResource( 68 ), ExtResource( 78 ), ExtResource( 120 ), ExtResource( 76 ), ExtResource( 45 ), ExtResource( 82 ), ExtResource( 81 ) ],
-"loop": true,
-"name": "idle_up",
 "speed": 30.0
 } ]
 
@@ -199,3 +200,6 @@ shape = SubResource( 1 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
 animation = "death"
+
+[node name="SoundAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 143 )

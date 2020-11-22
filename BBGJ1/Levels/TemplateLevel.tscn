@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Tilesets/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Camera.gd" type="Script" id=13]
 [ext_resource path="res://DoorControls/PressurePlate.tscn" type="PackedScene" id=14]
 [ext_resource path="res://AI/followPath.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Sounds/GhostChaser_Loop.wav" type="AudioStream" id=16]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -137,5 +138,10 @@ curve = SubResource( 2 )
 
 [node name="PathBoss" type="Path2D" parent="."]
 curve = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -4.0
+autoplay = true
 
 [editable path="Player"]
