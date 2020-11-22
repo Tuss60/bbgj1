@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SpaceGameBgm#1_Galaxy Blues_Loop.wav-20c2b9033cd630173a164dc69c91d94b.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/SpaceGameBgm#1_Galaxy Blues_Loop.wav"
+dest_files=[ "res://.import/SpaceGameBgm#1_Galaxy Blues_Loop.wav-20c2b9033cd630173a164dc69c91d94b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
