@@ -13,12 +13,12 @@ func _ready():
 	if path:
 		patrol_points = get_node(path).curve.get_baked_points()
 
-func get_monster_move_vec():
+func get_monster_move_vec(delta):
 	if !path:
 		print("ERROR NO PATH SET FOR MONSTER AI")
 		return
 	var target = patrol_points[patrol_index]
-	if thisMonster.position.distance_to(target) < 2:
+	if thisMonster.position.distance_to(target) < (thisMonster.speed * delta):
 		patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
 		target = patrol_points[patrol_index]
 	return (target - thisMonster.position).normalized() * thisMonster.speed

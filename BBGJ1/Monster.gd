@@ -7,6 +7,7 @@ var current_direction_vec : Vector2 = Vector2(0, 0)
 var special_animation = false
 export(NodePath) var ai
 var initial_position
+var initial_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,10 +15,12 @@ func _ready():
 	$MonsterSprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
 	add_to_group("monsters")
 	initial_position = position
-	set_new_monster_direction()
+	initial_health = health
 	
 func reset():
 	position = initial_position
+	health = health
+	animate_monster(Vector2.ZERO)
 	
 func _on_AnimatedSprite_animation_finished():
 	var animation_name = $MonsterSprite.animation.split('_')[0]
@@ -74,17 +77,17 @@ func monster_death():
 	var last_direction = get_right_corrected_direction(last_direction_vec)
 	$MonsterSprite.play("death_" + last_direction)
 
-func get_monster_move_vec():
+func get_monster_move_vec(delta):
 	# Insert logic to determine monster direction
 	if ai:
-		return ai.get_monster_move_vec()
+		return ai.get_monster_move_vec(delta)
 	return Vector2(0, 0)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if health == 0:
 		return
-	var monster_direction = get_monster_move_vec()
+	var monster_direction = get_monster_move_vec(delta)
 	if not special_animation:
 		animate_monster(monster_direction)
 	
