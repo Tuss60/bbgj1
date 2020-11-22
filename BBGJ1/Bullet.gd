@@ -15,7 +15,6 @@ func _physics_process(delta):
 		if(currentBounces < MAX_BOUNCES):
 			velocity = velocity.bounce((collision.normal))
 			currentBounces = currentBounces + 1
-			print(currentBounces)
 		else:
 			call_deferred("free")
 		
