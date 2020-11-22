@@ -142,7 +142,7 @@
 [ext_resource path="res://Assets/Player/Death/CharacterFront-Death_6.png" type="Texture" id=140]
 [ext_resource path="res://Assets/Player/Death/CharacterFront-Death_0.png" type="Texture" id=141]
 [ext_resource path="res://Assets/Player/Death/CharacterFront-Death_11.png" type="Texture" id=142]
-[ext_resource path="res://Assets/Sounds/SFX/laser_01.ogg" type="AudioStream" id=143]
+[ext_resource path="res://Assets/Sounds/SFX/laser_01.wav" type="AudioStream" id=143]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -158,9 +158,9 @@ animations = [ {
 "name": "idle_up",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 55 ), ExtResource( 66 ), ExtResource( 65 ), ExtResource( 95 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 50 ), ExtResource( 46 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 47 ), ExtResource( 124 ), ExtResource( 86 ), ExtResource( 64 ), ExtResource( 98 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 53 ), ExtResource( 105 ), ExtResource( 94 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 2 ) ],
 "loop": true,
-"name": "idle_down",
+"name": "walk_left",
 "speed": 30.0
 }, {
 "frames": [ ExtResource( 121 ), ExtResource( 71 ), ExtResource( 83 ), ExtResource( 115 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 48 ), ExtResource( 101 ), ExtResource( 100 ), ExtResource( 49 ), ExtResource( 43 ), ExtResource( 88 ), ExtResource( 56 ), ExtResource( 122 ), ExtResource( 51 ) ],
@@ -178,9 +178,9 @@ animations = [ {
 "name": "idle_left",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 55 ), ExtResource( 66 ), ExtResource( 65 ), ExtResource( 95 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 50 ), ExtResource( 46 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 47 ), ExtResource( 124 ), ExtResource( 86 ), ExtResource( 64 ), ExtResource( 98 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 53 ), ExtResource( 105 ), ExtResource( 94 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ) ],
 "loop": true,
-"name": "walk_left",
+"name": "idle_down",
 "speed": 30.0
 } ]
 
