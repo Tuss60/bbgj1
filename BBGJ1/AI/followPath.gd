@@ -6,6 +6,9 @@ var patrol_index = 0
 
 export (NodePath) var path
 
+func reset():
+	patrol_index = 0
+
 func _ready():
 	thisMonster = get_parent()
 	if !thisMonster:
