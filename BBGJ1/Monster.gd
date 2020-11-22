@@ -1,17 +1,16 @@
 extends KinematicBody2D
 
 export var speed = 200
+export var health = 3
 var last_direction_vec : Vector2 = Vector2(0, 1)
 var current_direction_vec : Vector2 = Vector2(0, 0)
 var special_animation = false
-
-var rng = RandomNumberGenerator.new()
+export(NodePath) var ai
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	ai = get_node(ai)
 	$MonsterSprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
-	rng.randomize()
-	set_new_monster_direction()
 	
 func _on_AnimatedSprite_animation_finished():
 	var animation_name = $MonsterSprite.animation.split('_')[0]
@@ -70,15 +69,14 @@ func monster_death():
 
 func get_monster_move_vec():
 	# Insert logic to determine monster direction
-	return current_direction_vec
-	
-func set_new_monster_direction():
-	var rand_x = rng.randf_range(-1.0, 1.0)
-	var rand_y = rng.randf_range(-1.0, 1.0)
-	current_direction_vec = Vector2(rand_x, rand_y) * speed
+	if ai:
+		return ai.get_monster_move_vec()
+	return Vector2(0, 0)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if health == 0:
+		return
 	var monster_direction = get_monster_move_vec()
 	if not special_animation:
 		animate_monster(monster_direction)
@@ -86,8 +84,11 @@ func _physics_process(delta):
 	var collision = move_and_collide(monster_direction * delta)
 	
 	if collision != null and collision.collider.name != "Player":
-		set_new_monster_direction() # bounce around the map for now
+		pass # do nothing for now
 		
 func touchedBullet():
-	monster_hit()
-
+	health = max(health - 1, 0)
+	if health == 0:
+		monster_death()
+	else:
+		monster_hit()

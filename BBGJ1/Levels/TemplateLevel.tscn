@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Tilesets/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,12 @@
 [ext_resource path="res://FlyingMonster.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Camera.gd" type="Script" id=13]
 [ext_resource path="res://DoorControls/PressurePlate.tscn" type="PackedScene" id=14]
+[ext_resource path="res://AI/followPath.tscn" type="PackedScene" id=15]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1128.33, 384.023, 0, 0, 0, 0, 1123.84, 680.354, 0, 0, 0, 0, 1725.48, 680.354, 0, 0, 0, 0, 1723.24, 386.268, 0, 0, 0, 0, 1128.33, 384.023 )
+}
 
 [node name="TemplateLevel" type="Node2D"]
 script = ExtResource( 4 )
@@ -91,9 +97,16 @@ position = Vector2( -150.41, -145.92 )
 position = Vector2( -626.449, 397.261 )
 
 [node name="GreenMonster" parent="." instance=ExtResource( 10 )]
-position = Vector2( -669.776, -362.746 )
+position = Vector2( 1130.65, 381.027 )
+ai = NodePath("followPath")
+
+[node name="followPath" parent="GreenMonster" instance=ExtResource( 15 )]
+path = NodePath("../../Path2D")
 
 [node name="BossMonster" parent="." instance=ExtResource( 11 )]
 position = Vector2( -693.296, 87.8557 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
 
 [editable path="Player"]
