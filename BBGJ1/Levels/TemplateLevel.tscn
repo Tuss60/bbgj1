@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tilesets/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Tilesets/newwalls.tres" type="TileSet" id=6]
 [ext_resource path="res://Assets/BGs/Nebula Blue.png" type="Texture" id=7]
 [ext_resource path="res://Assets/BGs/Stars Small_1.png" type="Texture" id=8]
+[ext_resource path="res://DynamicDoor.tscn" type="PackedScene" id=9]
 
 [node name="TemplateLevel" type="Node2D"]
 script = ExtResource( 4 )
@@ -65,5 +66,8 @@ texture = ExtResource( 7 )
 position = Vector2( -143.837, -95.8917 )
 scale = Vector2( 1.49163, 1.50334 )
 texture = ExtResource( 8 )
+
+[node name="DynamicDoor" parent="." instance=ExtResource( 9 )]
+position = Vector2( 74.3707, 1416.62 )
 
 [editable path="Player"]
