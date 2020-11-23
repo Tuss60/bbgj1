@@ -6,6 +6,9 @@ const MAX_BOUNCES = 10
 var velocity = Vector2()
 var currentBounces = 0
 
+func _is_monster(body):
+	return "Monster" in body.name or body.is_in_group("monsters")
+
 func _ready():
 	add_to_group("bullets")
 
@@ -26,6 +29,6 @@ func _on_Area2D_body_entered(body):
 	if "Player" in body.name:
 		body.touchedBullet()
 		call_deferred("free")
-	elif "Monster" in body.name:
+	elif _is_monster(body):
 		body.touchedBullet()
 		call_deferred("free")
