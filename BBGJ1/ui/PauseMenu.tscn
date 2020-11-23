@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/theme/user_interface.tres" type="Theme" id=1]
 [ext_resource path="res://ui/PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/controls.png" type="Texture" id=3]
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
@@ -38,21 +39,20 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 71.0
+margin_top = 49.0
 margin_right = 174.0
-margin_bottom = 91.0
+margin_bottom = 69.0
 text = "Game Paused"
 align = 1
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
-margin_top = 95.0
+margin_top = 73.0
 margin_right = 174.0
-margin_bottom = 135.0
+margin_bottom = 113.0
 rect_min_size = Vector2( 0, 40 )
 text = "Resume"
 
 [node name="Show Controls" type="Button" parent="VBoxContainer"]
-visible = false
 margin_top = 117.0
 margin_right = 174.0
 margin_bottom = 157.0
@@ -60,9 +60,9 @@ rect_min_size = Vector2( 0, 40 )
 text = "Help"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 139.0
+margin_top = 161.0
 margin_right = 174.0
-margin_bottom = 179.0
+margin_bottom = 201.0
 rect_min_size = Vector2( 0, 40 )
 text = "Quit"
 
@@ -81,6 +81,7 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="WindowDialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 __meta__ = {
