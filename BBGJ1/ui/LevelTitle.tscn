@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/theme/user_interface.tres" type="Theme" id=1]
+[ext_resource path="res://ui/LevelTitle.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "flicker"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 20, 20, 20, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="LevelIntro" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -87.0
+margin_top = -125.0
+margin_right = 87.0
+margin_bottom = 126.0
+mouse_filter = 2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lno" type="Label" parent="VBoxContainer"]
+margin_top = 103.0
+margin_right = 174.0
+margin_bottom = 123.0
+text = "Level 1"
+align = 1
+
+[node name="title" type="Label" parent="VBoxContainer"]
+margin_top = 127.0
+margin_right = 174.0
+margin_bottom = 147.0
+text = "Intro"
+align = 1
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/flicker = SubResource( 1 )

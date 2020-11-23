@@ -1,0 +1,120 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/theme/user_interface.tres" type="Theme" id=1]
+[ext_resource path="res://ui/PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/controls.png" type="Texture" id=3]
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.211765 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -87.0
+margin_top = -125.0
+margin_right = 87.0
+margin_bottom = 126.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 49.0
+margin_right = 174.0
+margin_bottom = 69.0
+text = "Game Paused"
+align = 1
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+margin_top = 73.0
+margin_right = 174.0
+margin_bottom = 113.0
+rect_min_size = Vector2( 0, 40 )
+text = "Resume"
+
+[node name="Show Controls" type="Button" parent="VBoxContainer"]
+margin_top = 117.0
+margin_right = 174.0
+margin_bottom = 157.0
+rect_min_size = Vector2( 0, 40 )
+text = "Help"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 161.0
+margin_right = 174.0
+margin_bottom = 201.0
+rect_min_size = Vector2( 0, 40 )
+text = "Quit"
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1320.0
+margin_top = 814.0
+margin_right = -93.0
+margin_bottom = -85.0
+window_title = "Instructions"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeControl" type="HSlider" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -41.0
+margin_right = 807.0
+margin_bottom = -13.0
+max_value = 0.5
+step = 0.0
+value = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 153.161
+margin_top = 832.392
+margin_right = 455.161
+margin_bottom = 859.392
+text = "Volume"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Show Controls" to="." method="_on_Show_Controls_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="value_changed" from="VolumeControl" to="." method="_on_VolumeControl_value_changed"]
