@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Tilesets/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -19,17 +19,37 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1128.33, 384.023, 0, 0, 0, 0, 1123.84, 680.354, 0, 0, 0, 0, 1725.48, 680.354, 0, 0, 0, 0, 1723.24, 386.268, 0, 0, 0, 0, 1128.33, 384.023 )
+"points": PoolVector2Array( 0, 0, 0, 0, -1031.81, 1262.82, 0, 0, 0, 0, -1029.44, 1553.85, 0, 0, 0, 0, -585.175, 1553.85, 0, 0, 0, 0, -589.926, 1271.14, 0, 0, 0, 0, -1031.81, 1262.82 )
 }
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -624.957, 397.493, 0, 0, 0, 0, -624.957, 1219.14, 0, 0, 0, 0, 800.571, 1216.89, 0, 0, 0, 0, 798.326, 397.493, 0, 0, 0, 0, -624.957, 397.493 )
+"points": PoolVector2Array( 0, 0, 0, 0, 663.782, 1713.73, 0, 0, 0, 0, 660.011, 2171, 0, 0, 0, 0, 1122.93, 2171.94, 0, 0, 0, 0, 1122.93, 1717.51, 0, 0, 0, 0, 666.61, 1714.68 )
 }
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -690.06, 85.4481, 0, 0, 0, 0, 77.7043, 85.4481 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1136.47, 231.871, 0, 0, 0, 0, 1128.77, 665.856, 0, 0, 0, 0, 1579.06, 674.755, 0, 0, 0, 0, 1581.73, 221.8, 0, 0, 0, 0, 1138.05, 228.696 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1595.93, 665.806, 0, 0, 0, 0, 1579.06, 221.8, 0, 0, 0, 0, 1141.23, 220.02, 0, 0, 0, 0, 1118.98, 669.416, 0, 0, 0, 0, 1595.93, 665.806 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -221.25, 972.991, 0, 0, 0, 0, -224.706, 1289.23, 0, 0, 0, 0, 358.975, 1284.74, 0, 0, 0, 0, 363.371, 971.765, 0, 0, 0, 0, -220.584, 972.991 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -224.746, 1811.17, 0, 0, 0, 0, -224.746, 2317.09, 0, 0, 0, 0, 228.314, 2325.89, 0, 0, 0, 0, 283.688, 1825.01, 0, 0, 0, 0, -218.454, 1814.94 )
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -432.399, 3357.19, 0, 0, 0, 0, -99.7968, 3088.73, 0, 0, 0, 0, 263.69, 3076.85, 0, 0, 0, 0, -178.196, 3442.72, 0, 0, 0, 0, 523.833, 3423.71, 0, 0, 0, 0, 191.23, 3092.3, 0, 0, 0, 0, -173.444, 3092.3, 0, 0, 0, 0, 242.308, 3429.65, 0, 0, 0, 0, -468.035, 3446.28, 0, 0, 0, 0, -440.714, 3359.57 )
 }
 
 [node name="TemplateLevel" type="Node2D"]
@@ -146,7 +166,6 @@ ai = NodePath("followPath")
 path = NodePath("../../R2_GM_1_Path")
 
 [node name="R2_GM_1_Path" type="Path2D" parent="."]
-position = Vector2( -2252.74, 904.623 )
 curve = SubResource( 1 )
 
 [node name="R3_GM_1" parent="." instance=ExtResource( 10 )]
@@ -158,12 +177,10 @@ ai = NodePath("followPath")
 path = NodePath("../../R3_GM_1_Path")
 
 [node name="R3_GM_1_Path" type="Path2D" parent="."]
-position = Vector2( -192.654, 1124.83 )
-scale = Vector2( 0.761884, 1.55316 )
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 
 [node name="R4_GM_1" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1019.66, 385.434 )
+position = Vector2( 1138.09, 230.044 )
 z_index = 2
 ai = NodePath("followPath")
 
@@ -171,17 +188,18 @@ ai = NodePath("followPath")
 path = NodePath("../../R4_GM_1_Path")
 
 [node name="R4_GM_1_Path" type="Path2D" parent="."]
-position = Vector2( 263.936, -364.019 )
-scale = Vector2( 0.761884, 1.55316 )
-curve = SubResource( 1 )
+curve = SubResource( 3 )
 
 [node name="R4_GM_2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1676.59, 513.32 )
+position = Vector2( 1666.1, 652.041 )
 z_index = 2
 ai = NodePath("followPath")
 
 [node name="followPath" parent="R4_GM_2" instance=ExtResource( 15 )]
-path = NodePath("../../R4_GM_1_Path")
+path = NodePath("../../R4_GM_2_Path")
+
+[node name="R4_GM_2_Path" type="Path2D" parent="."]
+curve = SubResource( 4 )
 
 [node name="R2_GM_2" parent="." instance=ExtResource( 10 )]
 position = Vector2( -215.188, 972.049 )
@@ -192,13 +210,10 @@ ai = NodePath("../R2_GM_2/followPath")
 path = NodePath("../../R2_GM_2_Path")
 
 [node name="R2_GM_2_Path" type="Path2D" parent="."]
-position = Vector2( -1345.84, 591.022 )
-curve = SubResource( 1 )
+curve = SubResource( 5 )
 
 [node name="PathFlying" type="Path2D" parent="."]
-position = Vector2( 103.698, 1403.22 )
-scale = Vector2( 0.521014, 0.885377 )
-curve = SubResource( 2 )
+curve = SubResource( 6 )
 
 [node name="BossMonster" parent="." instance=ExtResource( 11 )]
 position = Vector2( -436.604, 3334.18 )
@@ -210,8 +225,7 @@ ai = NodePath("followPath")
 path = NodePath("../../PathBoss")
 
 [node name="PathBoss" type="Path2D" parent="."]
-position = Vector2( 256.692, 3246.32 )
-curve = SubResource( 3 )
+curve = SubResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
